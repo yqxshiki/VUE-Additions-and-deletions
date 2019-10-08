@@ -14,7 +14,7 @@
         </tr>
       </thead>
       <thead>
-        <tr v-for="customer in filterBy(customers,filterInput)">
+        <tr v-for="customer in filterBy(customers,filterInput)" :key="customer.index">
           <td>{{customer.name}}</td>
           <td>{{customer.phone}}</td>
           <td>{{customer.email}}</td>
@@ -41,7 +41,8 @@ export default {
   },
   methods: {
     fetchCustomers() {
-      this.$http.get("http://localhost:3000/users/").then(res => {
+      // 在json-server中
+      this.$http.get("http://localhost:3000/users").then(res => {
         // console.log(res);
         //将数据给到  data里面的  customers
         this.customers = res.body;

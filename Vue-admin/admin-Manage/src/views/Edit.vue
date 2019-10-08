@@ -1,7 +1,7 @@
 
 <template>
   <div class="edit container">
-      <Alert v-if="alert" :message="alrt"></Alert>
+    <!-- <Alert v-if="alert" :message="alert"></Alert> -->
     <h1 class="page-header">编辑信息</h1>
     <form @submit="updateCustomer">
       <div class="well">
@@ -24,7 +24,7 @@
         </div>
         <div class="form-group">
           <label>公司行业</label>
-          <input type="text" class="form-control" placeholder="毕业学校" v-model="customer.bs" />
+          <input type="text" class="form-control" placeholder="毕业学校" v-model="customer.id" />
         </div>
         <div class="form-group">
           <label>公司口号</label>
@@ -57,20 +57,20 @@ export default {
     },
     updateCustomer(e) {
       if (!this.customer.name || !this.customer.phone || !this.customer.email) {
-        this.alert="请输入相应的信息";
+        this.alert = "请输入相应的信息";
       } else {
         let updateCustomer = {
           name: this.customer.name,
           phone: this.customer.phone,
           email: this.customer.email,
           website: this.customer.website,
-          bs: this.customer.company.bs,
-          catchPhrase: this.customer.company.catchPhrase,
-          street: this.customer.address.street
+          id: this.customer.id,
+          catchPhrase: this.customer.catchPhrase,
+          street: this.customer.street
         };
         this.$http
           .put(
-            "http://localhost:3000/users/"+this.$route.params.id,
+            "http://localhost:3000/users/" + this.$route.params.id,
             updateCustomer
           )
           .then(res => {
@@ -91,8 +91,8 @@ export default {
   created() {
     this.fetchCustomers(this.$route.params.id);
   },
-    components: {
-    Alert,
+  components: {
+    Alert
   }
 };
 </script>

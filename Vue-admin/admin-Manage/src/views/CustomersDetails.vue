@@ -23,16 +23,16 @@
         <span class="glyphicon glyphicon-tint jiange">{{customer.website}}</span>
       </li>
       <li class="list-group-item">
-        <span class="glyphicon glyphicon-asterisk jiange">{{customer.company.bs}}</span>
+        <span class="glyphicon glyphicon-asterisk jiange">{{customer.id}}</span>
       </li>
     </ul>
 
     <ul class="list-group">
       <li class="list-group-item">
-        <span class="glyphicon glyphicon-th-large jiange">{{customer.company.catchPhrase}}</span>
+        <span class="glyphicon glyphicon-th-large jiange">{{customer.catchPhrase}}</span>
       </li>
       <li class="list-group-item">
-        <span class="glyphicon glyphicon-signal jiange">{{customer.address.street}}</span>
+        <span class="glyphicon glyphicon-signal jiange">{{customer.street}}</span>
       </li>
     </ul>
   </div>

@@ -47,25 +47,25 @@ export default {
   data() {
     return {
       customer: {},
-      alert:""
+      alert: ""
     };
   },
   methods: {
     addCustomer(e) {
       if (!this.customer.name || !this.customer.phone || !this.customer.email) {
-        this.alert="请输入相应的信息";
+        this.alert = "请输入相应的信息";
       } else {
         let newCustomer = {
           name: this.customer.name,
           phone: this.customer.phone,
           email: this.customer.email,
           website: this.customer.website,
-          bs: this.customer.company.bs,
-          catchPhrase: this.customer.company.catchPhrase,
-          street: this.customer.address.street
+          bs: this.customer.bs,
+          catchPhrase: this.customer.catchPhrase,
+          street: this.customer.street
         };
         this.$http
-          .post("http://localhost:3000/users", newCustomer)
+          .post("http://localhost:3000/users/", newCustomer)
           .then(res => {
             this.$router.push({
               path: "/",
@@ -80,7 +80,7 @@ export default {
     }
   },
   components: {
-    Alert,
+    Alert
   }
 };
 </script>
